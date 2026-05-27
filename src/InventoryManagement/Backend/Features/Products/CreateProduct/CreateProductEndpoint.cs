@@ -8,7 +8,7 @@ namespace Backend.Features.Products.CreateProduct;
 
 public static class CreateProductEndpoint
 {
-    public static void MapCreateItem(this IEndpointRouteBuilder app)
+    public static void MapCreateProduct(this IEndpointRouteBuilder app)
     {
         app.MapPost(
             "/",
@@ -48,7 +48,6 @@ public static class CreateProductEndpoint
                     newProduct.Quantity,
                     newProduct.StockThreshold,
                     newProduct.Price,
-                    newProduct.CreatedAt,
                     newProduct.LastUpdatedBy
                 );
 

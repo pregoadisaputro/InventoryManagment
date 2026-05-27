@@ -4,7 +4,7 @@ namespace Backend.Features.Products.DeleteProduct;
 
 public static class DeleteProductEnpoint
 {
-    public static void MapDeleteProduct(IEndpointRouteBuilder app)
+    public static void MapDeleteProduct(this IEndpointRouteBuilder app)
     {
         app.MapDelete(
             "/{id:int}",

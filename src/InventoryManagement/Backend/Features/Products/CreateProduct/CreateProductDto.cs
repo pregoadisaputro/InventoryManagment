@@ -10,3 +10,14 @@ public record CreateProductDto(
     [Required] int StockThreshold,
     [Required] [Range(0.01, 100000.00)] decimal Price
 );
+
+public record ProductDetailsDto(
+    int Id,
+    string Name,
+    string Sku,
+    int CategoryId,
+    int Quantity,
+    int StockThreshold,
+    decimal Price,
+    string LastUpdatedBy
+);

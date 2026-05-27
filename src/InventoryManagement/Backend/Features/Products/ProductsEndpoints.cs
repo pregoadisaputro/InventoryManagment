@@ -1,4 +1,7 @@
 using Backend.Features.Products.CreateProduct;
+using Backend.Features.Products.DeleteProduct;
+using Backend.Features.Products.GetProduct;
+using Backend.Features.Products.UpdateProduct;
 
 namespace Backend.Features.Products;
 
@@ -8,6 +11,9 @@ public static class ProductsEndpoints
     {
         var group = app.MapGroup("/products");
 
-        group.MapCreateItem();
+        group.MapCreateProduct();
+        group.MapGetProduct();
+        group.MapUpdateProduct();
+        group.MapDeleteProduct();
     }
 }

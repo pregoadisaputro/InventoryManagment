@@ -1,12 +1,11 @@
 using Backend.Data;
 using Backend.Features.Products.Constants;
-using Backend.Features.Products.GetProducts;
 
 namespace Backend.Features.Products.GetProduct;
 
 public static class GetProductEndpoint
 {
-    public static void MapGetProduct(IEndpointRouteBuilder app)
+    public static void MapGetProduct(this IEndpointRouteBuilder app)
     {
         app.MapGet(
                 "/{id:int}",
