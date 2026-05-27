@@ -8,7 +8,7 @@ public record ProductSummaryDto(
     int Id,
     string Name,
     string Sku,
-    string Category,
+    string CategoryName,
     int Quantity,
     int StockThreshold,
     decimal Price,
