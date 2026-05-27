@@ -1,2 +1,15 @@
 ###
-GET http://localhost:5256/
+GET http://localhost:5256/products
+
+###
+POST http://localhost:5256/products
+Content-Type: application/json
+
+{
+    "name": "TestProduct",
+    "sku": "TEST-TEST-TEST",
+    "categoryId": 1,
+    "quantity": 1,
+    "stockThreshold": 5,
+    "price": 59.99
+}

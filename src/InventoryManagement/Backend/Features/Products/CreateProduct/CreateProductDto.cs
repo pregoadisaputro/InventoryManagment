@@ -4,7 +4,7 @@ namespace Backend.Features.Products.CreateProduct;
 
 public record CreateProductDto(
     [Required] [StringLength(50)] string Name,
-    [Required] [StringLength(10)] string Sku,
+    [Required] [StringLength(50)] string Sku,
     [Required] int CategoryId,
     [Required] int Quantity,
     [Required] int StockThreshold,

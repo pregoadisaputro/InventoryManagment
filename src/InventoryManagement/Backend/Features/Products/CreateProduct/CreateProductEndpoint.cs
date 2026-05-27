@@ -1,7 +1,6 @@
 using Backend.Data;
 using Backend.Data.Models;
 using Backend.Features.Products.Constants;
-using Backend.Features.Products.GetProducts;
 using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Features.Products.CreateProduct;
@@ -27,6 +26,8 @@ public static class CreateProductEndpoint
                     );
                 }
 
+                var currentOperator = "System_Admin";
+
                 var newProduct = new Product
                 {
                     Name = productDto.Name,
@@ -35,6 +36,7 @@ public static class CreateProductEndpoint
                     Quantity = productDto.Quantity,
                     StockThreshold = productDto.StockThreshold,
                     Price = productDto.Price,
+                    LastUpdatedBy = currentOperator,
                 };
 
                 dbContext.Add(newProduct);
