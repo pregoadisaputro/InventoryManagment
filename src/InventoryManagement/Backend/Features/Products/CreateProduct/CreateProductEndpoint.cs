@@ -1,7 +1,7 @@
 using Backend.Data;
 using Backend.Data.Models;
 using Backend.Features.Products.Constants;
-using Backend.Features.Products.ProductDetails;
+using Backend.Features.Products.GetProducts;
 using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Features.Products.CreateProduct;
