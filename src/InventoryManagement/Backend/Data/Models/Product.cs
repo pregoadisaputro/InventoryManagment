@@ -11,4 +11,5 @@ public class Product
     public int StockThreshold { get; set; } = 5;
     public decimal Price { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public string LastUpdatedBy { get; set; } = string.Empty;
 }
