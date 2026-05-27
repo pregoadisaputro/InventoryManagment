@@ -1,4 +1,5 @@
 using Backend.Data;
+using Backend.Features.Categories;
 using Backend.Features.Products;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<InventoryDbContext>(options =>
 var app = builder.Build();
 
 app.MapProducts();
+app.MapCategories();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
