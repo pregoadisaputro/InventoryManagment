@@ -16,7 +16,13 @@ public static class GetProductEndpoint
 
                     if (existingItems is null)
                     {
-                        return Results.NotFound();
+                        return Results.NotFound(
+                            new
+                            {
+                                Title = "Not Found",
+                                Detail = $"Product with ID {id} is not exist in inventory.",
+                            }
+                        );
                     }
 
                     var response = new ProductDetailsDto(

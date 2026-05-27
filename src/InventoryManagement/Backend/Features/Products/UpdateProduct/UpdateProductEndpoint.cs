@@ -18,7 +18,7 @@ public static class UpdateProductEndpoint
                         new
                         {
                             Title = "Not Found",
-                            Detail = $"Product with ID '{id}' not exist in inventory.",
+                            Detail = $"Product with ID '{id}' is not exist in inventory.",
                         }
                     );
                 }
