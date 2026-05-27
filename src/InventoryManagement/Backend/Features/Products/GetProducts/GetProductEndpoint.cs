@@ -36,6 +36,11 @@ public static class GetProductEndpoint
                     ))
                     .AsNoTracking()
                     .ToListAsync();
+
+                var totalProducts = await filteredProducts.CountAsync();
+                var totalPages = (int)Math.Ceiling(totalProducts / (double)request.PageSize);
+
+                return new ProductPageDto(totalPages, productsOnPage);
             }
         );
     }
