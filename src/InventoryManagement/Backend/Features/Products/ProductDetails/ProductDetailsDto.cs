@@ -1,4 +1,4 @@
-namespace Backend.Features.Products.GetProduct;
+namespace Backend.Features.Products.ProductDetails;
 
 public record ProductDetailsDto(
     int Id,
