@@ -13,16 +13,22 @@ public static class GetProductEndpoint
             {
                 var skipCount = (request.PageNumber - 1) * request.PageSize;
 
-                var filteredProducts = dbContext.Products.Where(product =>
-                    string.IsNullOrWhiteSpace(request.Name)
-                    || EF.Functions.Like(product.Name, $"%{request.Name}%")
-                );
+                var query = dbContext.Products.AsNoTracking();
 
-                var productsOnPage = await filteredProducts
+                if (!string.IsNullOrWhiteSpace(request.Name))
+                {
+                    query = query.Where(product =>
+                        EF.Functions.ILike(product.Name, $"%{request.Name}%")
+                    );
+                }
+
+                var totalProducts = await query.CountAsync();
+                var totalPages = (int)Math.Ceiling(totalProducts / (double)request.PageSize);
+
+                var productsOnPage = await query
                     .OrderBy(product => product.Name)
                     .Skip(skipCount)
                     .Take(request.PageSize)
-                    .Include(product => product.Category)
                     .Select(product => new ProductSummaryDto(
                         product.Id,
                         product.Name,
@@ -34,13 +40,9 @@ public static class GetProductEndpoint
                         product.CreatedAt,
                         product.LastUpdatedBy
                     ))
-                    .AsNoTracking()
                     .ToListAsync();
 
-                var totalProducts = await filteredProducts.CountAsync();
-                var totalPages = (int)Math.Ceiling(totalProducts / (double)request.PageSize);
-
-                return new ProductPageDto(totalPages, productsOnPage);
+                return Results.Ok(new ProductPageDto(totalPages, productsOnPage));
             }
         );
     }
