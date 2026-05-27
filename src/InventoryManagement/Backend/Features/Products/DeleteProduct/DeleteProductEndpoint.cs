@@ -2,7 +2,7 @@ using Backend.Data;
 
 namespace Backend.Features.Products.DeleteProduct;
 
-public static class DeleteProductEnpoint
+public static class DeleteProductEndpoint
 {
     public static void MapDeleteProduct(this IEndpointRouteBuilder app)
     {
@@ -10,20 +10,18 @@ public static class DeleteProductEnpoint
             "/{id:int}",
             async (int id, InventoryDbContext dbContext) =>
             {
-                var existingItems = await dbContext.Products.FindAsync(id);
+                var existingProducts = await dbContext.Products.FindAsync(id);
 
-                if (existingItems is null)
+                if (existingProducts is null)
                 {
-                    return Results.NotFound(
-                        new
-                        {
-                            Title = "Not Found",
-                            Detail = $"Product with ID {id} is not exist in inventory.",
-                        }
+                    return Results.Problem(
+                        detail: $"Product with ID '{id}' does not exist in the inventory.",
+                        statusCode: StatusCodes.Status404NotFound,
+                        title: "Product Not Found"
                     );
                 }
 
-                dbContext.Remove(existingItems);
+                dbContext.Remove(existingProducts);
                 await dbContext.SaveChangesAsync();
 
                 return Results.NoContent();

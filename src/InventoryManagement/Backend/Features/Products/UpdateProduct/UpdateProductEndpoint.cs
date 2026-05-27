@@ -14,12 +14,10 @@ public static class UpdateProductEndpoint
 
                 if (existingProduct is null)
                 {
-                    return Results.NotFound(
-                        new
-                        {
-                            Title = "Not Found",
-                            Detail = $"Product with ID '{id}' is not exist in inventory.",
-                        }
+                    return Results.Problem(
+                        detail: $"Product with ID '{id}' does not exist in the inventory.",
+                        statusCode: StatusCodes.Status404NotFound,
+                        title: "Product Not Found."
                     );
                 }
 
