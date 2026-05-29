@@ -1,6 +1,6 @@
 # Inventory Management API
 
-A RESTful backend API for managing product inventory, built with **ASP.NET Core 10** using Minimal APIs and **PostgreSQL** via Entity Framework Core.
+my implementations from Inventory Management Console project. RESTful backend API for managing product inventory, built with **ASP.NET Core 10** using Minimal APIs and **PostgreSQL** via Entity Framework Core.
 
 ## Tech Stack
 
