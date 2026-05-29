@@ -34,24 +34,6 @@ Backend/
 
 The project follows a **vertical slice / feature folder** pattern — each endpoint lives in its own folder with its DTO and handler.
 
-## Getting Started
-
-**Prerequisites:** .NET 10 SDK, PostgreSQL
-
-```bash
-# 1. Clone the repo
-git clone <repo-url>
-
-# 2. Set your connection string (user secrets recommended)
-dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Host=localhost;Database=inventory;Username=postgres;Password=yourpassword"
-
-# 3. Apply migrations
-dotnet ef database update
-
-# 4. Run
-dotnet run
-```
-
 ## API Endpoints
 
 | Method   | Route            | Description                                   |
