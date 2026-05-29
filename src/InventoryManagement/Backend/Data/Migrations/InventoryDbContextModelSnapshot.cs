@@ -37,6 +37,18 @@ namespace Backend.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Electronics"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Clothing"
+                        });
                 });
 
             modelBuilder.Entity("Backend.Data.Models.Product", b =>
@@ -79,6 +91,32 @@ namespace Backend.Data.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            CreatedAt = new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            LastUpdatedBy = "System_Seed",
+                            Name = "Wireless Mouse",
+                            Price = 29.99m,
+                            Quantity = 50,
+                            Sku = "ELEC-MOUSE-001",
+                            StockThreshold = 10
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 2,
+                            CreatedAt = new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            LastUpdatedBy = "System_Seed",
+                            Name = "T-Shirt",
+                            Price = 19.99m,
+                            Quantity = 100,
+                            Sku = "CLTH-TSHIRT-001",
+                            StockThreshold = 15
+                        });
                 });
 
             modelBuilder.Entity("Backend.Data.Models.Product", b =>
