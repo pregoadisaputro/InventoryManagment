@@ -1,5 +1,8 @@
 ###
-GET http://localhost:5256/products
+GET http://localhost:5256/products/
+
+###
+GET http://localhost:5256/products/3
 
 ###
 POST http://localhost:5256/products
@@ -13,3 +16,19 @@ Content-Type: application/json
     "stockThreshold": 5,
     "price": 59.99
 }
+
+###
+PUT http://localhost:5256/products/3
+Content-Type: application/json
+
+{
+    "name": "UpdateTestProduct",
+    "sku": "TEST-TEST-TEST",
+    "categoryId": "2",
+    "quantity": 100,
+    "stockThreshold": 5,
+    "price": 159.99
+}
+
+###
+DELETE http://localhost:5256/products/3
